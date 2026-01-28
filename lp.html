@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Info Wudhu • Style Anak</title>
+
+  <style>
+    :root{
+      /* background sama (sky) */
+      --sky1:#b7dcff;
+      --sky2:#e6f4ff;
+
+      /* palette ala referensi */
+      --ink:#0f172a;
+      --muted:#475569;
+      --card:#ffffff;
+      --line:rgba(15,23,42,.10);
+
+      --blue:#2f80ff;
+      --blue2:#0b6bd6;
+
+      --green:#22c55e;
+      --yellow:#fbbf24;
+      --orange:#fb923c;
+      --purple:#8b5cf6;
+      --purple2:#7c3aed;
+
+      --radius:22px;
+      --shadow: 0 18px 45px rgba(2,6,23,.16);
+    }
+
+    *{box-sizing:border-box}
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--ink);
+      background: linear-gradient(to bottom, var(--sky1), var(--sky2));
+    }
+
+    .wrap{
+      width:min(980px, 92vw);
+      margin: 0 auto;
+      padding: 26px 0 44px;
+    }
+
+    /* HERO (tanpa navbar) */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:16px;
+      align-items:start;
+      margin-bottom: 14px;
+    }
+    @media (max-width: 900px){
+      .hero{ grid-template-columns: 1fr; }
+    }
+
+    .helloCard{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px;
+      position:relative;
+      overflow:hidden;
+    }
+    .helloCard::after{
+      content:"";
+      position:absolute;
+      right:-60px; top:-60px;
+      width:180px; height:180px;
+      background: radial-gradient(circle at 30% 30%, rgba(47,128,255,.25), transparent 62%);
+      transform: rotate(20deg);
+      pointer-events:none;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 12px;
+      background: rgba(251,191,36,.20);
+      border: 1px solid rgba(245,158,11,.35);
+      color: #7a4b00;
+      white-space:nowrap;
+    }
+
+    .helloTitle{
+      margin: 10px 0 6px;
+      font-size: clamp(22px, 3.2vw, 34px);
+      line-height: 1.1;
+      letter-spacing: .2px;
+    }
+    .helloDesc{
+      margin: 0;
+      color: var(--muted);
+      font-weight: 650;
+      line-height: 1.55;
+      font-size: 14px;
+      max-width: 62ch;
+    }
+
+    .ctaRow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 12px;
+    }
+    .btn{
+      border:none;
+      cursor:pointer;
+      text-decoration:none;
+      font-weight: 950;
+      font-size: 14px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      user-select:none;
+      box-shadow: 0 8px 0 rgba(2,6,23,.10);
+      white-space:nowrap;
+    }
+    .btn:active{ transform: translateY(3px); box-shadow: 0 5px 0 rgba(2,6,23,.10); }
+    .btnPrimary{
+      background: linear-gradient(180deg, #ffe28a, var(--yellow));
+      border: 1px solid rgba(245,158,11,.35);
+      color: #2b2000;
+    }
+    .btnGhost{
+      background: rgba(47,128,255,.10);
+      border: 1px solid rgba(47,128,255,.30);
+      box-shadow:none;
+      color: #0b3a9a;
+    }
+    .btnGhost:active{ transform:none; }
+
+    .sideCard{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px;
+    }
+    .sideHead{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom: 10px;
+    }
+    .sideHead h3{
+      margin:0;
+      font-size: 14px;
+      font-weight: 950;
+      letter-spacing:.2px;
+    }
+    .miniTag{
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-weight: 950;
+      font-size: 12px;
+      border: 1px solid rgba(15,23,42,.12);
+      background: rgba(2,6,23,.04);
+      white-space:nowrap;
+    }
+    .quickList{
+      margin:0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-weight: 750;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    /* MENU CARDS ala referensi */
+    .menu{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:12px;
+      margin-top: 10px;
+    }
+
+    .menuCard{
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      border: 1px solid rgba(15,23,42,.08);
+      background: #fff;
+      position:relative;
+    }
+    .menuInner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding: 14px 14px;
+    }
+    .left{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+    .icon{
+      width:46px;height:46px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.50);
+      border: 1px solid rgba(255,255,255,.45);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size: 22px;
+      flex:none;
+      box-shadow: 0 10px 25px rgba(2,6,23,.12);
+    }
+    .txt{ min-width:0; }
+    .title{
+      margin:0;
+      font-size: 16px;
+      font-weight: 1000;
+      letter-spacing:.2px;
+      color:#0b1220;
+    }
+    .sub{
+      margin: 4px 0 0;
+      font-size: 13px;
+      color: rgba(2,6,23,.72);
+      font-weight: 750;
+      line-height: 1.4;
+    }
+    .tag{
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-weight: 950;
+      font-size: 12px;
+      background: rgba(255,255,255,.75);
+      border: 1px solid rgba(255,255,255,.55);
+      white-space:nowrap;
+      flex:none;
+    }
+
+    /* color themes */
+    .g{ background: linear-gradient(135deg, rgba(34,197,94,.95), rgba(16,185,129,.75)); }
+    .y{ background: linear-gradient(135deg, rgba(251,191,36,.95), rgba(245,158,11,.75)); }
+    .b{ background: linear-gradient(135deg, rgba(47,128,255,.95), rgba(59,130,246,.78)); }
+    .p{ background: linear-gradient(135deg, rgba(139,92,246,.95), rgba(124,58,237,.78)); }
+
+    .details{ padding: 0 14px 14px; }
+    .detailBox{
+      background: rgba(255,255,255,.70);
+      border: 1px solid rgba(255,255,255,.55);
+      border-radius: 18px;
+      padding: 12px 12px 10px;
+      margin-top: 10px;
+    }
+    .detailBox h4{
+      margin:0 0 8px;
+      font-size: 14px;
+      font-weight: 1000;
+      color:#0b1220;
+    }
+
+    /* Arabic */
+    .arab{
+      direction: rtl;
+      text-align: right;
+      font-size: 20px;
+      line-height: 1.85;
+      padding: 12px 12px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(255,255,255,.55);
+      margin: 10px 0 8px;
+      font-family: "Amiri","Scheherazade New","Noto Naskh Arabic",serif;
+      overflow-wrap:anywhere;
+    }
+    .latin{
+      font-size: 13px;
+      color: rgba(2,6,23,.76);
+      font-weight: 750;
+      line-height: 1.55;
+      margin: 0 0 6px;
+      overflow-wrap:anywhere;
+    }
+
+    /* ✅ Tips section baru (anak-friendly) */
+    .playRules{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:10px;
+    }
+    .rule{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:12px;
+      border-radius:16px;
+      background: rgba(255,255,255,.78);
+      border:1px solid rgba(255,255,255,.55);
+      font-weight:950;
+      font-size:14px;
+      color:#0b1220;
+    }
+    .rule .emoji{ font-size:22px; }
+
+    /* mobile */
+    @media (max-width: 640px){
+      .wrap{ width:94vw; padding: 16px 0 26px; }
+      .btn{ width:100%; }
+      .menuInner{ padding: 14px 12px; }
+      .icon{ width:44px; height:44px; border-radius: 16px; }
+      .title{ font-size: 15px; }
+      .tag{ font-size: 11px; padding: 7px 9px; }
+      .arab{ font-size: 18px; }
+      .playRules{ grid-template-columns: 1fr; }
+    }
+
+    .footer{
+      margin-top: 14px;
+      text-align:center;
+      color: rgba(15,23,42,.70);
+      font-weight: 800;
+      font-size:12px;
+      padding: 0 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <!-- HERO (tanpa header MyTahfidz/login/register) -->
+    <section class="hero">
+      <div class="helloCard">
+        <span class="pill">🌙 Aman & Seru untuk Anak</span>
+        <h1 class="helloTitle">Belajar Wudhu Jadi Mudah!</h1>
+        <p class="helloDesc">
+          Yuk belajar wudhu bareng! Klik kartu di bawah untuk lihat niat, langkah, doa, dan aturan mainnya ✨
+        </p>
+
+        <div class="ctaRow">
+          <a class="btn btnPrimary" href="#tata-cara">✅ Mulai dari Tata Cara</a>
+          <a class="btn btnGhost" href="#doa">📖 Lihat Doa</a>
+        </div>
+      </div>
+
+      <aside class="sideCard">
+        <div class="sideHead">
+          <h3>Wajib Wudhu (6)</h3>
+          <span class="miniTag">Ringkas</span>
+        </div>
+        <ul class="quickList">
+          <li>Niat</li>
+          <li>Basuh wajah</li>
+          <li>Basuh tangan sampai siku</li>
+          <li>Usap sebagian kepala</li>
+          <li>Basuh kaki sampai mata kaki</li>
+          <li>Tertib</li>
+        </ul>
+      </aside>
+    </section>
+
+    <div class="menu">
+      <!-- NIAT -->
+      <section class="menuCard g" id="niat">
+        <div class="menuInner">
+          <div class="left">
+            <div class="icon">🧡</div>
+            <div class="txt">
+              <h2 class="title">Niat Wudhu</h2>
+              <p class="sub">Niat di hati sebelum basuh wajah.</p>
+            </div>
+          </div>
+          <div class="tag">Wajib</div>
+        </div>
+
+        <div class="details">
+          <div class="detailBox">
+            <h4>Contoh niat</h4>
+
+            <div class="arab">نَوَيْتُ رَفْعَ الحَدَثِ لِلهِ تَعَالَى</div>
+            <div class="latin">Nawaytu raf‘al hadatsi lillāhi ta’ālā.</div>
+
+            <div class="arab">نَوَيْتُ فَرْضَ الوُضُوْءِ لِلهِ تَعَالَى</div>
+            <div class="latin">Nawaytu fardhal wudhū’i lillāhi ta’ālā.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TATA CARA (ringkas biar ga kepanjangan) -->
+      <section class="menuCard y" id="tata-cara">
+        <div class="menuInner">
+          <div class="left">
+            <div class="icon">🧼</div>
+            <div class="txt">
+              <h2 class="title">Tata Cara Wudhu</h2>
+              <p class="sub">Urutan gampang: tangan → mulut → hidung → wajah → tangan → kepala → telinga → kaki.</p>
+            </div>
+          </div>
+          <div class="tag">Step</div>
+        </div>
+
+        <div class="details">
+          <div class="detailBox">
+            <h4>Urutan cepat</h4>
+            <p style="margin:0;color:rgba(2,6,23,.78);font-weight:850;font-size:13px;line-height:1.55;">
+              ✨ Bismillah • Cuci tangan • Berkumur • Hidung • Wajah • Tangan sampai siku • Kepala • Telinga • Kaki
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- DOA -->
+      <section class="menuCard b" id="doa">
+        <div class="menuInner">
+          <div class="left">
+            <div class="icon">📖</div>
+            <div class="txt">
+              <h2 class="title">Doa Setelah Wudhu</h2>
+              <p class="sub">Baca setelah selesai wudhu.</p>
+            </div>
+          </div>
+          <div class="tag">Doa</div>
+        </div>
+
+        <div class="details">
+          <div class="detailBox">
+            <h4>Doanya</h4>
+            <div class="arab">
+              أَشْهَدُ أَنْ لَا إلَهَ إلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ، وَرَسُولُهُ،
+              اللَّهُمَّ اجْعَلْنِي مِنْ التَّوَّابِينَ، وَاجْعَلْنِي مِنْ الْمُتَطَهِّرِينَ
+            </div>
+            <div class="latin">
+              Asyhadu an lā ilāha illallāhu wahdahū lā syarīka lahū, wa asyhadu anna Muhammadan ‘abduhū wa rasūluhū.
+              Allāhummaj‘alnī minat tawwābīna, waj‘alnī minal mutathahhirīn.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ✅ GANTI TIPS (anak-friendly) -->
+      <section class="menuCard p" id="aturan">
+        <div class="menuInner">
+          <div class="left">
+            <div class="icon">🎮</div>
+            <div class="txt">
+              <h2 class="title">Aturan Main Wudhu</h2>
+              <p class="sub">Ikuti aturan ini biar wudhumu sah ✨</p>
+            </div>
+          </div>
+          <div class="tag">Game</div>
+        </div>
+
+        <div class="details">
+          <div class="detailBox">
+            <h4>Ingat ini ya!</h4>
+            <div class="playRules">
+              <div class="rule"><span class="emoji">▶️</span><span>Mulai dengan <b>Bismillah</b></span></div>
+              <div class="rule"><span class="emoji">💦</span><span>Air harus <b>kena semua</b></span></div>
+              <div class="rule"><span class="emoji">🧠</span><span>Ikuti <b>urutan</b>, jangan loncat</span></div>
+              <div class="rule"><span class="emoji">🎉</span><span>Selesai? <b>Baca doa</b></span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="footer">
+      Style warna terinspirasi dari UI referensi yang kamu kirim. Konten wudhu disederhanakan untuk anak ✨
+    </div>
+  </div>
+</body>
+</html>
